@@ -15,7 +15,7 @@ class User(Base):
     password = Column(String,index=True)
     create_at = Column(DateTime(timezone=True), server_default=func.now()) 
     
-    payments = relationship("Payment", back_populates="user")
+    payments = relationship("Payment", back_populates="users")
 
 
 
@@ -43,9 +43,9 @@ class specs(Base):
     __tablename__ = "specs"
     
     id = Column(Integer,primary_key=True,index=True)
-    pc_specs = Column(JSON)
-    console_specs = Column(JSON,nullable=False)
-    select_date = Column(String,nullable=False)
+    pc_specs = Column(JSON, nullable=False)
+    console_specs = Column(JSON, nullable=False)
+    select_date = Column(String, nullable=False)
     select_time_slot= Column(String, nullable=False)
     number_of_available_slot = Column(Integer, nullable=False)
     notes = Column(String, nullable=False)
